@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevent Heaven</title>
+    <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/footer.css" />
+<link rel="stylesheet" href="./Styles/nav.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+    #container {
+        height: 10%;
+        width: 100%;
+        display: flex;
+        justify-content:space-evenly ;
+        background-color:rgb(51, 0, 96);
+
+    }
+    img {
+        border-radius: 10%;
+        height: 40%;
+        width: 80%;
+    }
+    @media all and (min-width:400px) and (max-width:950px){
+       #nav ul li:nth-child(2){
+               display: none;
+        }
+        #nav ul li:nth-child(3){
+     display: none;
+        }
+        #nav ul li:nth-child(4){
+               display: none;
+        }
+        #nav ul li:nth-child(5){
+               display: none;
+        }
+        #nav ul li:nth-child(6){
+               display: none;
+        }
+        #nav ul li:nth-child(7){
+               display: none;
+        }
+        #drop{
+               width: 300px;
+        }
+    }
+    @media all and (min-width:50px) and (max-width:380px){
+        #container {
+    display: flex;
+ justify-content: space-evenly;
+ }
+        #nav ul li:nth-child(2){
+    display: none; 
+}
+        #nav ul li:nth-child(3){
+    display: none;
+}
+          #nav ul li:nth-child(4){
+    display: none;
+}
+#nav ul li:nth-child(5){
+            display: none;
+}
+        #nav ul li:nth-child(6){
+            display: none;
+        }
+    #nav ul li:nth-child(7){
+    display: none;
+    }
+    #nav1 ul li:nth-child(3){
+    display: none; 
+     }
+   
+
+    #dropbox1 {
+    width: 250px;
+    }
+    #drop {
+        width: 200px;
+    }
+}
+
+</style>
+</head>
+<body>
+    <navbar>
+        <div id="container">
+        <div id="nav">
+        <ul>
+        <img src="logo.jpeg">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="tvshow.html">TV Shows</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="webseries.html">Web Series</a></li>
+        <li><a href="music.html">News</a></li>
+        <li id="dropbox">
+        <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-ellipsis-vertical"></i></a>
+        <ul>
+        <li><a href="Buyplan1.html" title="">Eduauraa</a></li>
+        <li><a href="Buyplan1.html" title="Zee5 Premium Package Subscription">Premium</a></li>
+        <li><a href="music.html" title="Watch Live TV Channels Online">Live TV</a></li>
+        <li><a href="music.html" title="Watch Music Videos Online">Music</a></li>
+        <li><a href="more2.html" title="Rent Movies And Watch">Rent</a></li>
+        <li><a href="more.html" title="Watch Kids Shows & Movies Online">Kids</a></li>
+        <li><a href="search.html" title="Watch Official Films Videos">Videos</a></li>
+        <li><a href="home.html" title="Watch Channels">Channels</a></li>
+        </ul>
+        </li>
+        </ul>
+        </div>
+        <div id="box2">
+        <ul>
+        <li style="margin-top: -5px;">
+        <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> </a>
+        </li>
+        <li>
+        <a href="Login.html">
+        <button id="log">LOGIN</button></a>
+        </li>
+        <li>
+        <a href="Buyplan1.html">
+        <button id="buy"><i class="fa-solid fa-crown"></i> BUY PLAN</button></a>
+        </li>
+        <li id="dropbox2" style="color: #fff; cursor: pointer;">
+        <i title="Menu" class="fa-solid fa-bars"></i>
+        </li>
+        </ul>
+        </div>
+        <div id="dropbox1">
+        <div class="drop">
+        <a href="index.html"> Home</a>
+        </div>
+        <div class="drop">
+        <button class="explore">
+        <p>Explore</p> <span class="arrow"><i class="fa-solid fa-sort-down"></i></span>
+        </button>
+        <div class="panel1">
+        <a href="Buyplan1.html">Premium</a>
+        <a href="music.html">Music</a>
+        <a href="about.html">About Us</a>
+        <a href="helpcenter.html">Help Center</a>
+        <a href="search.html">Videos</a>
+        </div>
+        </div>
+        <div class="drop">
+        <a href="tvshow.html">Tv Show</a>
+        </div>
+        <div class="drop">
+        <a href="webseries.html">Web Series</a>
+        </div>
+        <div class="drop">
+        <a href="movies.html">Movies</a>
+        </div>
+        <div class="drop">
+        <a href="music.html">Music</a>
+        </div>
+        <div class="drop">
+        <a href="search.html">Videos</a>
+        </div>
+        </div>
+        </div>
+        </navbar>
+</body>
+</html>
