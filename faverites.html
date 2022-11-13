@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <style>
+        body {
+            background-color:#130022 ;
+        }
+        #cart-container {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: white;">Faverites</h2>
+    <div id="cart-container">
+        <!-- Here Append All the cart Products  -->
+      </div>
+</body>
+</html>
+<script>
+let ls_data=JSON.parse(localStorage.getItem("cart"));
+  console.log(ls_data);
+ display(ls_data);
+ function display(data){
+   document.querySelector("#cart-container").innerHTML="";
+    data.forEach((ele,index) => {
+     let div=document.createElement("div");
+
+     let img=document.createElement("img");
+     img.setAttribute("src",ele.avatar);
+     
+     let names=document.createElement("h4");
+     names.innerText=ele.name;
+     
+     
+     div.append(img,names)
+     document.querySelector("#cart-container").append(div)
+    });
+   
+ }
+</script>

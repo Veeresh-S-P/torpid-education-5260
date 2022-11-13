@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-   #container {
+    #box {
     height: 60px;
     top:0;
     left: 0;
@@ -19,6 +19,7 @@
     width: 100%;
     margin:auto;
     padding: 25px 40px;
+    /* position: fixed; */
     background-color: #0f0617;
     display: flex;
     justify-content: space-between;
@@ -29,47 +30,56 @@
         font-size: 12px;
         font-weight: bold;
     }
-    .explore {
-        color: #fff;
-        cursor: pointer;
-        padding: 10px 0px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.8s;
-        background-color:#110718;
-        font-weight: bold;
-        position: relative;
-    }
-    .explore p{
+    
+/* ----------------------accordion------------------ */
+.accordion1 {
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 0px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.8s;
+    background-color:#110718;
+    font-weight: bold;
+    position: relative;
+    /* margin-top: 10px; */
+  }
+  .accordion1 p{
     margin-top: 2%;
-     width: 100%;
-    font-weight:normal;
+  width: 100%;
+  font-weight:normal;
   font-size: 14px;
-   }
-  .explore1 {
+}
+  
+
+  .panel1 {
     padding: 18px;
     display: none;
     overflow: hidden;
     color: #fff;
     background-color:#110718;
     font-size: 14px;
+  
+
   }
-.explore1 a{
-    display: block;
-    text-decoration: none;
-    color: #fff;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 2;
-}
+
+  .panel1 a{
+      display: block;
+      text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 2;
+      }
 
   .arrow {
     position: absolute;
     top: 10%;
     right: 5%;
+    /* transform: rotate(180deg); */
     transition: 0.3s all ease-in-out;
   }
   .rotate{
@@ -82,7 +92,7 @@ font-family: NotoSansRegular,sans-serif;
 background-color: #0f0617;
 font-weight: 400;
 }
-#container ul {
+#box ul {
     list-style-type: none;
     display: flex;
 }
@@ -91,27 +101,28 @@ height: 45px;
 margin-left: -50px;
 margin-top: -15px;
 }
-#container ul li a {
+#box ul li a {
 text-decoration: none;
 color: hsla(0,0%,100%,.9);
 position: relative;
 }
-#container ul li {
+#box ul li {
 width: max-content;
 margin-left: 30px;
 margin-top:-5px;
 text-align: center;
 }
-#dropbox {
+#menu {
 position: relative;
 margin-top: 3px;
 }
-#dropbox ul {
+#menu ul {
 margin-top: 15px;
 margin-left: -100px;
 display: flex;
 flex-direction: column;
 position: absolute;
+z-index: 1000;
 
 }
 
@@ -156,6 +167,8 @@ cursor: pointer;
 background-color: #8230c6;
 border-radius: 6px;
 font-size: 13px;
+/* height: 25px; */
+/* margin-top: -5px; */
 }
 #log {
 background-color: transparent;
@@ -175,7 +188,7 @@ ul li:hover ul li {
 display:block;
 }
 
-#dropbox ul li {
+#menu ul li {
 background-color: black;
 width: 200px;
 text-align: left;
@@ -185,7 +198,7 @@ box-sizing: border-box;
 padding-left: 30px;
 }
 
-#dropbox1 {
+#menu1 {
 width: 250px;
 background-color:#0f0617;
 height: 350px;
@@ -198,15 +211,15 @@ overflow: hidden;
 position: absolute;
 top: 0;
 right: 2%;
-z-home: 1000;
+z-index: 1000;
 padding:0 5% 0 5%;
 
 }
 
-.subdropbox1{
+.submenu1{
     margin-top: 20px;
 }
-#dropbox1 a {
+#menu1 a {
 text-decoration:none ;
 color: #fff;
 
@@ -239,7 +252,7 @@ margin-right: 20px;
 select option {
 color: #fff;
 }
-#dropbox1 ul {
+#menu1 ul {
 margin-top: 0px;
 margin-left: 0px;
 padding: 5px;
@@ -247,7 +260,7 @@ display: none;
 
 }
 
-#dropbox1 ul li {
+#menu1 ul li {
 background-color: black;
 width: 200px;
 text-align: left;
@@ -266,8 +279,261 @@ text-align: center;
 ::placeholder{
     color: #fff;
 }
-#dropbox11 {
+#menu11 {
 margin-right: 10px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+body{
+    background-color:#0f0617;
+    /* overflow: hidden; */
+    /* position: relative; */
+}
+
+
+.mySlides {
+  display: none
+}
+img {
+  vertical-align: middle;
+}
+
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  /* margin: 10px 0; 
+   margin: 10px auto;  */
+}
+.items > img{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height:350px;
+    /* object-fit: cover; */
+    border-radius: 10px;
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(184, 137, 166, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+ .next2 {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next2 {
+  right: 0%;
+  border-radius: 3px 0 0 3px;
+}
+.pre1:hover, .next2:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+/* ----------------------------slider end ----------------------------- */
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 95.5%;
+    margin: auto;
+    position: relative;
+}
+.top_heading{
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+
+}
+
+.top_heading>p,a{
+    margin-top: 25px;
+}
+.top_heading a{
+    color:#a785ff;
+}
+.top >h1{
+  margin-top: 20px;
+}
+/* ----------------------------------heading End --------------------- */
+
+.card_container {
+    /* width: 80%; */
+    height: 380px;
+    display: flex;
+    align-items: center;
+    transform: translateX(0);
+  /* margin: auto; */
+
+    transition: all 0.4s ease-in-out;
+    
+
+}
+.card{
+    
+    min-width: 195px;
+    height: 330px;
+    border-radius: 5px;
+    margin-top: 1%;
+    position: relative;
+    transition: 00.3s;
+    margin-right: 25px;
+    box-shadow: rgba(194, 130, 171, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
+.card:hover{
+    transform: scale(1.1);
+    border: 4px solid #ffffff;
+    /* height: 350px; */
+}
+.crown{
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    background-color: #ffffff;
+    padding: 1% 1.5%;
+    background-color: none;
+    border-radius: 50%;
+}
+.crown a{
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+.crown i{
+    color:  #ff0066;
+   background-color: #ffffff;
+  
+
+}
+.card >img{
+    width: 100%;
+    border-radius: 5px;
+}
+.text{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+    /* border-radius: 5px; */
+    line-height: 2;
+    padding-left: 2%;
+    display: none;
+    transition: 0.4s;
+}
+.card:hover .text{
+    display: inherit;
+}
+.text >p{
+    padding: 1% 1.5%;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+.text_bottom{
+    display: flex;
+    align-items: center;
+    
+}
+.text_bottom a{
+    border: 1px solid gray;
+    padding: 1% 2.5%;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+.text_bottom a +p{
+    margin-top: 10px;
+}
+.text_bottom a:hover{
+    background-color: #210B61;
+    color: #ffffff;
+}
+.text_bottom p{
+    color: gray;
+}
+
+  
+
+.movie-list-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* margin: 10px 0; */
 }
 #footer{
     height: auto;
@@ -414,123 +680,35 @@ footer h4{
     background-color: rgb(252, 47, 10);
     cursor: pointer;
 }
-@media all and (min-width:51px ) and (max-width: 381px){
-    .about{
-        width:80%;
-        margin:20px auto ;
-        display: flex;
-        flex-wrap: wrap;        
-        justify-content: space-between;
-        
-    }
-    .leftlogo{
-        margin-top: 20px;
-        flex-wrap: nowrap;
-    }
-    .logo > h4{
-        display: none;
-        
-    }
-    .leftlogo > h4{
-        display: none;
-        
-    }
-    .leftlogo a{
-        margin-right: 10px    
-    }
-
+.slidecont {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15%;
 }
-
-@media all and (min-width:380px ) and (max-width: 981px){
-    .about{
-        width:80%;
-        margin:20px auto ;
-        display: flex;
-        flex-wrap: wrap;        
-        justify-content: space-between;
-        
-    }
-    .leftlogo{
-        margin-top: 20px;
-        flex-wrap: nowrap;
-    }
-    .logo{
-        flex-wrap: nowrap;
-    }
+.fade {
+  margin-left: 10%;
 }
-@media all and (min-width:381px) and (max-width:900px){
-#box1 ul li:nth-child(2){
-    display: none;
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2%;
 }
-#box1 ul li:nth-child(3){
-    display: none;
+.card-container>img {
+    margin-top: 10%;
 }
-#box1 ul li:nth-child(4){
-    display: none;
-}
-#box1 ul li:nth-child(5){
-    display: none;
-}
-#box1 ul li:nth-child(6){
-    display: none;
-}
-#box1 ul li:nth-child(7){
-    display: none;
-}
-#submenu1 {
-    width: 300px;
-}
-
-}
-@media all and (min-width:50px) and (max-width:380px){
-#box1 ul li:nth-child(2){
-    display: none;
-}
-#box1 ul li:nth-child(3){
-    display: none;
-}
-#box1 ul li:nth-child(4){
-    display: none;
-}
-#box1 ul li:nth-child(5){
-    display: none;
-}
-#box1 ul li:nth-child(6){
-    display: none;
-}
-#box1 ul li:nth-child(7){
-    display: none;
-}
-#box2 ul li:nth-child(3){
-    display: none; 
-}
-#box {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#menu1 {
-    width: 250px;
-}
-#submenu1 {
-    width: 200px;
-}
-
-}
-
-
 </style>
+   
 </head>
 <body>
     <navbar>
-        <div id="container">
-        <div id="container1">
+        <div id="box">
+        <div id="box1">
         <ul>
         <li>
         <img src="logo.jpeg" id="logo" title="Zee5logo" alt="Zee% lOgo">
         </li>
         <li>
-        <a href="home.html">Home</a>
+        <a href="index.html">Home</a>
         </li>
         <li>
         <a href="tvshow.html">TV Shows</a>
@@ -539,12 +717,12 @@ footer h4{
         <a href="movies.html">Movies</a>
         </li>
         <li>
-        <a href="webseries.html">Web Series</a>
+        <a href="webseries_single.html">Web Series</a>
         </li>
         <li>
         <a href="music.html">News</a>
         </li>
-        <li id="dropbox">
+        <li id="menu">
         <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-ellipsis-vertical"></i></a>
         <ul>
         <li><a href="./Buyplan1.html" title="Zee5 Premium Package Subscription">Premium</a></li>
@@ -560,9 +738,10 @@ footer h4{
         </li>
         </ul>
         </div>
-        <div id="container2">
+        <div id="box2">
         <ul>
         <li style="margin-top: -5px;">
+            <input type="text" placeholder="search here">
         <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> </a>
         </li>
         <li>
@@ -573,761 +752,762 @@ footer h4{
         <a href="Buyplan1.html">
         <button id="buy"><i class="fa-solid fa-crown"></i> BUY PLAN</button></a>
         </li>
-        <li id="dropbox11" style="color: #fff; cursor: pointer;">
-        <i title="dropbox" class="fa-solid fa-bars"></i>
+        <li id="menu11" style="color: #fff; cursor: pointer;">
+        <i title="Menu" class="fa-solid fa-bars"></i>
         </li>
         </ul>
         </div>
-        <div id="dropbox1">
-        <div class="subdropbox1">
-        <a href="home.html"> Home</a>
+        <div id="menu1">
+        <div class="submenu1">
+        <a href="index.html"> Home</a>
         </div>
-        <div class="subdropbox1">
-        <button class="explore">
+        <div class="submenu1">
+        <button class="accordion1">
         <p>Explore</p> <span class="arrow"><i class="fa-solid fa-sort-down"></i></span>
         </button>
-        <div class="explore1">
-        <a href="Buyplan.html">Premium</a>
-        <a href="music.html">Music</a>
-        <a href="about.html">About Us</a>
-        <a href="elpcenter.html">Help Center</a>
-        <a href="search.html">Videos</a>
+        <div class="panel1">
+        <a href="home.html">Premium</a>
+        <a href="home.html">Music</a>
+        <a href="home.html">About Us</a>
+        <a href="home.html">Help Center</a>
+        <a href="home.html">Videos</a>
         </div>
         </div>
-        <div class="subdropbox1">
+        <div class="submenu1">
         <a href="tvshow.html">Tv Show</a>
         </div>
-        <div class="subdropbox1">
-        <a href="webseries_single.html">Web Series</a>
+        <div class="submenu1">
+        <a href="webseries.html">Web Series</a>
         </div>
-        <div class="subdropbox1">
-        <a href="movies.html">Movies></a>
+        <div class="submenu1">
+        <a href="movies.html">Movies</a>
         </div>
-        <div class="subdropbox1">
-        <a href="music.html">Music></a>
+        <div class="submenu1">
+        <a href="music.html">Music</a>
         </div>
-        <div class="subdropbox1">
-        <a href="search.html">Videos></a>
+        <div class="submenu1">
+        <a href="movies.html">Videos</a>
         </div>
         </div>
         </div>
-    </navbar>
-       
-        <div class="slideshow-container">
-        <div class="fade">
-        <img src=""/>
-        </div>
-        <div class="fade">
-        <img src=""/>
-        </div>
-        <div class="fade">
-        <img src=""/>
-        </div>
-        <div class="">
-        <img src=""/>
-        </div>
-        <a class="prev" onclick="prev()">&#10094;</a>
-        <a class="next" onclick="next()">&#10095;</a>
-        </div>
-        <div class="movie-list-wrapper">
-        <div class="container">
-        <div class="top_heading">
-        <p>Exclusive Movies on ZEE5</p>
-        <a href="more2.html">More <i class="fa-solid fa-angle-right"></i></a>
-        </div>
-        <div class="card-container">
-        <div class="card">
-        <img src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-4z5245974/portrait/1920x770ead8f7bc5a8f4bd9809087cd4634f79f282c9cd652e5436eb585f908d0a68670.jpg">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mukhbir</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>RRR</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Sun Flower</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Aha ni pellata</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Raccie</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                    <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Bicchoo ka khel</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                     <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Baarish Aur Chowmein</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Slivat</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                    <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        </div>
-        
-        <div class="next2">&#10095;</div>
-        </div>
-        </div>
-        
-        <div class="movie-list-wrapper">
-        <div class="container">
-        <div class="top_heading">
-        <p>ZEE5 Spark</p>
-        <a href="more.html">More <i class="fa-solid fa-angle-right"></i></a>
-        </div>
-        <div class="card-container">
-        
-        <div class="card">
-                                                                                                <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Baarish Aur Chowmein</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Silvat</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Half Full</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Deuce</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-         <div class="card">
-                                                                                                    <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>L</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>TobaTek Singh</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card"
-                                                                                                     <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Bijaya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Satyameva Jayate</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Dream Girl</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                            <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Kori Khala</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-                                                                                                     <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Helmet</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Jiban Sathi</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        </div>
-        
-        <div class="next2">&#10095;</div>
-        </div>
-        </div>
-        
-        <div class="movie-list-wrapper">
-        <div class="container">
-        <div class="top_heading">
-        <p>Top Bhojpuri Movies</p>
-        <a href="./more3.html">More <i class="fa-solid fa-angle-right"></i></a>
-        </div>
-        <div class="card-container">
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Rihaee</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Himmatwala</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Ek Raja Theen lougai</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>BCS-2</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Thoda gussa thoda pyaar</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>JZWS</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text"> 
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        </div>
-        
-        <div class="next2">&#10095;</div>
-        </div>
-        </div>
-        
-        <div class="movie-list-wrapper">
-        <div class="container">
-        <div class="top_heading">
-        <p>IMDB Top Picks</p>
-        <a href="more2.html">More <i class="fa-solid fa-angle-right"></i></a>
-        </div>
-        <div class="card-container">
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Rashmi Rocket</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>South Movie</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Jersey</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>South Movie</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Series</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Series</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card">
-        <img src="">
-        <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
-        <div class="text">
-        <p>Mithya</p>
-        <div class="text_bottom">
-        <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
-        <p><i class="fa-solid fa-share-nodes"></i> More</p>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="next2">&#10095;</div>
-        </div>
-        </div>
-        <footer id="footer">
-        <div class="container">
-        <hr style="height:0.5px;border-width:0;color:gray;background-color:rgb(32, 28, 28);margin-top: 15px;">
-        <br>
-        <div class="logDiv">
-        <div class="leftlogo">
-        <h4>Connect with us</h4>
-        <a href="https://www.facebook.com/ZEE5/" class="fb"><i class="fa-brands fa-facebook-square"></i></a>
-        <a href="https://www.instagram.com/zee5/" class="insta"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://twitter.com/zee5india" class="twitter"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://www.youtube.com/channel/UCXOgAl4w-FQero1ERbGHpXQ" class="youtube"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-        </div>
-        <div class="about">
-        <p><a href="./about.html">About Us</a></p>
-        <p>|</p>
-        <p><a href="./helpcenter.html">Help Center</a></p>
-        <p>|</p>
-        <p><a href="./Buyplan1.html">Buy Plan</a></p>
-        </div>
-        <div class="row">
-        <div class="footer-col">
-        <h3>Popular TV Shows</h3>
-            <div><a href="https://www.zee5.com/movies/details/kya-meri-sonam-gupta-bewafa-hai/0-0-1z51625">Kumkum Bhagya</a></div>
-            <div><a href="">Kundali Bhagya</a></div>
-            <div><a href="">Bhagya Lakshmi</a></div>
-            <div><a href="">Tujhse Hai Raabta</a></div>
-            <div><a href="">Kyun Rishton Mein Katti Batti</a></div>
-        </div>
-        <div class="footer-col">
-            <h3>Premium Movies</h3>
-            <div><a href="">Kya Meri Sonam Gupta Bewafa</a></div>
-            <div><a href="">Helmet</a></div>
-            <div><a href="">200 Halla Ho</a></div>
-            <div><a href="">14 Phere</a></div>
-            <div><a href="">Dial 100</a></div>
-        </div>
-        <div class="footer-col">
-            <h3>Popular LIVE TV Channels</h3>
-            <div><a href="">Aaj Tak</a></div>
-            <div><a href="">Zee News</a></div>
-            <div><a href="">Zee Tv HD</a></div>
-            <div><a href="">&TV HD</a></div>
-             <div><a href="">Zee Marathi HD</a></div>
+        </navbar>
+        <div class="slidecont">
+            <div class="fade">
+            <img src="https://akamaividz2.zee5.com/image/upload/w_1188,h_475,c_scale,f_webp,q_auto:eco/resources/0-0-1z5234688/cover/1920x770b60b8550ec184b5eae16b5b5a3ae4579301be9f1145b4c46a2a8ea62adf5b37a.jpg"/>
             </div>
-        <div class="footer-col">
-            <h3>Popular Web Series</h3>
-            <div><a href="">Sunflower</a></div>
-            <div><a href="">Jeet Ki Zid</a></div>
-            <div><a href="">Biccho Ka Khel</a></div>
-            <div><a href="">State of Seige:26/11</a></div>
-            <div><a href="">Naxalbari</a></div>
-            <div><a href="">Tripling</a></div>
+            <div class="fade">
+            <img src="https://akamaividz2.zee5.com/image/upload/w_1188,h_475,c_scale,f_webp,q_auto:eco/resources/0-6-4z5202688/cover/1920x7702ebc4f413f6e4cc081e1e254751b546b.jpg"/>
             </div>
-        <div class="footer-col">
-            <h3>Bollywood Top Celebrities</h3>
-            <div><a href="">Sunny Leone</a></div>
-            <div><a href="">Disha Patani</a></div>
-             <div><a href="">Deepika Padukone</a></div>
-            <div><a href="">Salman Khan</a></div>
-            <div><a href="">Nora Fatehi</a></div>
+            <div class="fade">
+            <img src="https://akamaividz2.zee5.com/image/upload/w_1188,h_475,c_scale,f_webp,q_auto:eco/resources/0-0-1z5227557/cover/1920x7708e66f35ad8484172a0796c13f18922c4.jpg"/>
             </div>
-        </div>
-        <div class="footer-col">
-            <h3>Games&News</h3>
-            <div><a href="">Play</a></div>
-            <div><a href="">Stories</a></div>
-            <div><a href="">Articles</a></div>
+            <div class="fade">
+            <img src="https://akamaividz2.zee5.com/image/upload/w_1188,h_475,c_scale,f_webp,q_auto:eco/resources/0-6-4z5156060/cover/1920x7701f9b989cbee649ac8300702950fe3290.jpg"/>
+            </div>
+            <a class="prev" onclick="prev()">&#10094;</a>
+            <a class="next" onclick="next()">&#10095;</a>
+            </div>
+            <div class="movie-list-wrapper">
+                <div class="container">
+                <div class="top_heading">
+                <p>Exclusive Movies on ZEE5</p>
+                <a href="more2.html">More <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+                <div class="card-container">
+                <div class="card">
+                <img  style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-4z5245974/portrait/1920x770ead8f7bc5a8f4bd9809087cd4634f79f282c9cd652e5436eb585f908d0a68670.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Mukhbir</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-4z5245891/portrait/1920x7704b56222a936c44f7b30712b3b0b52c9d.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>RRR</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-1z5227557/portrait/1920x7708e66f35ad8484172a0796c13f18922c4.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Binbi sara</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-4z5192239/portrait/1920x770a78be5fdc4ef469fa04a1dbeaa702c2e.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Aha ni pellata</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-4z5192239/portrait/1920x770a78be5fdc4ef469fa04a1dbeaa702c2e.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Hello world</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-1z5246218/portrait/1920x7704cedc8256d384df89a14578e1eb8c982.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Guru shishyaru</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                 <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-1z5234572/portrait/1920x7703636d7977b034f10a5def35c95ba9242.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Tripling</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-101-10z5210809/portrait/1920x77016897353b57c849a695c1349bb8f81035.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Vikranth Rona</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-1z5206274/portrait/1920x770485283887ce04c66a91f3e5dc0e20747.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>kudha Hafiz</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-4z5156060/portrait/1920x7701f9b989cbee649ac8300702950fe3290.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Raccie</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-1z5234572/portrait/1920x7703636d7977b034f10a5def35c95ba9242.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Spider Man </p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-1z5214599/portrait/1920x770be7ef3576c2b46ac8bf91788e1076c5f.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Jurassic world</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+                <div class="next2">&#10095;</div>
+                </div>
+                </div>
+                
+                <div class="movie-list-wrapper">
+                <div class="container">
+                <div class="top_heading">
+                <p>ZEE5 Spark</p>
+                <a href="more.html">More <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+                <div class="card-container">
+                
+                <div class="card">
+            <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-2459/portrait/1920x7701b08463b08604a2089258d9f93edda68.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Trinayani</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-2040/portrait/1920x77020c35e69770a4429b2e22501c60ffc64.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Radhamma Kuthuru</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-2460/portrait/1920x770692165b7aafc4e8ba2d5d2dbea819c3b.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Prema Yentha Madhura</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-naaperushiva/portrait/00naaperushivacoverf0329853826e4a89aaf69cb9c4684cc5.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Deuce</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                 <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-1z5227125/portrait/1920x770a68536cd3f1049089c07fab87c76482d.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>The Gandhi marder
+                </p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-4z5186473/portrait/1920x770d45c722558784a878c2b658a52608ca262037c5f2b984d49ac163c89090a6c47.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>TobaTek Singh</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-6-4z5186473/portrait/1920x770d45c722558784a878c2b658a52608ca262037c5f2b984d49ac163c89090a6c47.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Be Happy</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-6-4z535664/portrait/1920x77068ffbd8b24864473862affb4889cc5af.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Family matter</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-1z5106110/portrait/1920x77015468a3352f44e3282353552bbfc5e69.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Dream Girl</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-7463/portrait/1920x7706c05b7a540e949bfaab1974aac211a5d.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Kori Khala</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                 <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-6-4z5193948/portrait/1920x7704ba850de7a8a410cb16fa2d7468d3e77.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Helmet</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-1z5168309/portrait/1920x77064ac664e8a764732a703f41adb0cd836.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Sathi</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+                <div class="next2">&#10095;</div>
+                </div>
+                </div>
+                
+                <div class="movie-list-wrapper">
+                <div class="container">
+                <div class="top_heading">
+                <p>Top Bhojpuri Movies</p>
+                <a href="./more3.html">More <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+                <div class="card-container">
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-50232/portrait/mohtelugu19201924157449.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Love</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-87581/portrait/love1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Himmatwala</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-84502/portrait/bombed1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Ek Raja Theen lougai</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-1z5105315/portrait/1920x77046caf4fc6cc749449f965f73520c98853851be880b9046eaa2ddf37bd6a9d20e.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>BCS-2</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-movie_565516711/portrait/mehmaantelugu1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Thoda gussa thoda pyaar</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-movie_431710155/portrait/tamashreete1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Tammanha</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-6750/portrait/khaartelugu1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Rowdy Boys</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-1z5176982/portrait/1920x77042e129fc00244061afc5515e76ecb441.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text"> 
+                <p>Manikya</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-122736/portrait/1920x77052d26ebbbbe84965ba5a44b5018e3881.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Hetel Mubai</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-1z587104/portrait/1920x770e8f7c8cb8f1844339bfdd98cc2eaeaf6.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Seetha Ramam</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-424127/portrait/1920x7706dd0eb17ed4d4e2c903c12df0109a3976d806cf414624d2f94ff53ff4fa2288e.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Kalyana</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-424127/portrait/1920x7706dd0eb17ed4d4e2c903c12df0109a3976d806cf414624d2f94ff53ff4fa2288e.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Savage</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+                <div class="next2">&#10095;</div>
+                </div>
+                </div>
+                
+                <div class="movie-list-wrapper">
+                <div class="container">
+                <div class="top_heading">
+                <p>IMDB Top Picks</p>
+                <a href="more2.html">More <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+                <div class="card-container">
+                
+                <div class="card">
+                    <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-122736/portrait/1920x77052d26ebbbbe84965ba5a44b5018e3881.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Rashmi Rocket</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                    <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-424127/portrait/1920x7706dd0eb17ed4d4e2c903c12df0109a3976d806cf414624d2f94ff53ff4fa2288e.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>South Movie</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                    <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-movie_565516711/portrait/mehmaantelugu1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Jersey</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                    <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_504,h_756,c_scale,f_webp,q_auto:eco/resources/0-0-1z5214599/portrait/1920x770be7ef3576c2b46ac8bf91788e1076c5f.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>South Movie</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;"  src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-movie_565516711/portrait/mehmaantelugu1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Series</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                    <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-1z5168309/portrait/1920x77064ac664e8a764732a703f41adb0cd836.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Series</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                    <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-movie_565516711/portrait/mehmaantelugu1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>One day</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+               
+                <img style="height:90% ;"   src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-424127/portrait/1920x7706dd0eb17ed4d4e2c903c12df0109a3976d806cf414624d2f94ff53ff4fa2288e.jpg">
+                <div class="text">
+                <p>Magic</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                    <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-movie_565516711/portrait/mehmaantelugu1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Mingle</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-movie_565516711/portrait/mehmaantelugu1920x770.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Brundavan</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                   
+                    <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-424127/portrait/1920x7706dd0eb17ed4d4e2c903c12df0109a3976d806cf414624d2f94ff53ff4fa2288e.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Python</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="card">
+                <img style="height:90% ;" src="https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-0-424127/portrait/1920x7706dd0eb17ed4d4e2c903c12df0109a3976d806cf414624d2f94ff53ff4fa2288e.jpg">
+                <div class="crown"><a href="#"><i class="fa-solid fa-crown"></i></a></div>
+                <div class="text">
+                <p>Pirates</p>
+                <div class="text_bottom">
+                <a href="#"><i class="fa-solid fa-play"></i> Watch</a>
+                <p><i class="fa-solid fa-share-nodes"></i> More</p>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div class="next2">&#10095;</div>
+                </div>
+                </div>
+            <footer id="footer">
+            <div class="container">
+            <hr style="height:0.5px;border-width:0;color:gray;background-color:rgb(32, 28, 28);margin-top: 15px;">
+            <br>
+            <div class="logDiv">
+            <div class="leftlogo">
+            <h4>Connect with us</h4>
+            <a href="https://www.facebook.com/ZEE5/" class="fb"><i class="fa-brands fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/zee5/" class="insta"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/zee5india" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCXOgAl4w-FQero1ERbGHpXQ" class="youtube"><i class="fa-brands fa-youtube"></i></a>
             </div>
             </div>
-        <div class="last">Best viewed on Google Chrome 80+, Microsoft Edge 81+, Mozilla Firefox 75+, Safari 5.1.5+
-        Copyright © 2022 Zee Entertainment Enterprises Ltd. All rights reserved.</div>
-        </div>
-        </footer>
+            <div class="about">
+            <p><a href="./about.html">About Us</a></p>
+            <p>|</p>
+            <p><a href="./helpcenter.html">Help Center</a></p>
+            <p>|</p>
+            <p><a href="./Buyplan1.html">Buy Plan</a></p>
+            </div>
+            <div class="row">
+            <div class="footer-col">
+            <h3>Popular TV Shows</h3>
+                <div><a href="https://www.zee5.com/movies/details/kya-meri-sonam-gupta-bewafa-hai/0-0-1z51625">Kumkum Bhagya</a></div>
+                <div><a href="">Kundali Bhagya</a></div>
+                <div><a href="">Bhagya Lakshmi</a></div>
+                <div><a href="">Tujhse Hai Raabta</a></div>
+                <div><a href="">Kyun Rishton Mein Katti Batti</a></div>
+            </div>
+            <div class="footer-col">
+                <h3>Premium Movies</h3>
+                <div><a href="">Kya Meri Sonam Gupta Bewafa</a></div>
+                <div><a href="">Helmet</a></div>
+                <div><a href="">200 Halla Ho</a></div>
+                <div><a href="">14 Phere</a></div>
+                <div><a href="">Dial 100</a></div>
+            </div>
+            <div class="footer-col">
+                <h3>Popular LIVE TV Channels</h3>
+                <div><a href="">Aaj Tak</a></div>
+                <div><a href="">Zee News</a></div>
+                <div><a href="">Zee Tv HD</a></div>
+                <div><a href="">&TV HD</a></div>
+                 <div><a href="">Zee Marathi HD</a></div>
+                </div>
+            <div class="footer-col">
+                <h3>Popular Web Series</h3>
+                <div><a href="">Sunflower</a></div>
+                <div><a href="">Jeet Ki Zid</a></div>
+                <div><a href="">Biccho Ka Khel</a></div>
+                <div><a href="">State of Seige:26/11</a></div>
+                <div><a href="">Naxalbari</a></div>
+                <div><a href="">Tripling</a></div>
+                </div>
+            <div class="footer-col">
+                <h3>Bollywood Top Celebrities</h3>
+                <div><a href="">Sunny Leone</a></div>
+                <div><a href="">Disha Patani</a></div>
+                 <div><a href="">Deepika Padukone</a></div>
+                <div><a href="">Salman Khan</a></div>
+                <div><a href="">Nora Fatehi</a></div>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Games&News</h3>
+                <div><a href="">Play</a></div>
+                <div><a href="">Stories</a></div>
+                <div><a href="">Articles</a></div>
+                </div>
+                </div>
+            <div class="last">Best viewed on Google Chrome 80+, Microsoft Edge 81+, Mozilla Firefox 75+, Safari 5.1.5+
+            Copyright © 2022 Zee Entertainment Enterprises Ltd. All rights reserved.</div>
+            </div>
+            </footer>
         </body>
 
 </html>

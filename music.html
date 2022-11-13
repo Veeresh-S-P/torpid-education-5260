@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color:  #6d1bb1;
+        }
+        #cards h4,#cards p {
+             color: white;
+        }
+        #cards {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 30px;
+            margin-left:7%;
+            
+        }
+        #box {
+             height: 60px;
+             top:0;
+             left: 0;
+                 max-width:100%;
+                 width: 100%;
+            margin:auto;
+            padding: 25px 40px;
+            /* position: fixed; */
+             background-color: #0f0617;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+    }
+    #log , #buy{
+        padding: 5px 25px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+/* ----------------------accordion------------------ */
+.accordion1 {
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 0px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.8s;
+    background-color:#110718;
+    font-weight: bold;
+    position: relative;
+    /* margin-top: 10px; */
+  }
+  .accordion1 p{
+    margin-top: 2%;
+  width: 100%;
+  font-weight:normal;
+  font-size: 14px;
+}
+  
+
+  .panel1 {
+    padding: 18px;
+    display: none;
+    overflow: hidden;
+    color: #fff;
+    background-color:#110718;
+    font-size: 14px;
+  
+
+  }
+
+  .panel1 a{
+      display: block;
+      text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 2;
+      }
+
+  .arrow {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    /* transform: rotate(180deg); */
+    transition: 0.3s all ease-in-out;
+  }
+  .rotate{
+    transform: rotate(180deg);
+  }
+
+
+body {
+font-family: NotoSansRegular,sans-serif;
+background-color: #0f0617;
+font-weight: 400;
+}
+#box ul {
+    list-style-type: none;
+    display: flex;
+}
+#logo {
+height: 45px;
+margin-left: -50px;
+margin-top: -15px;
+}
+#box ul li a {
+text-decoration: none;
+color: hsla(0,0%,100%,.9);
+position: relative;
+}
+#box ul li {
+width: max-content;
+margin-left: 30px;
+margin-top:-5px;
+text-align: center;
+}
+#menu {
+position: relative;
+margin-top: 3px;
+}
+#menu ul {
+margin-top: 15px;
+margin-left: -100px;
+display: flex;
+flex-direction: column;
+position: absolute;
+z-index: 1000;
+
+}
+
+
+ul li  ul li {
+width: max-content;
+margin-left: 20px;
+margin-top:-5px;
+text-align: center;
+}
+ul li ul li {
+display: none;
+}   
+ul li span {
+display: none;
+font-size: 13px;
+border: 1px solid #fff;
+color: #fff;
+width: 60px;
+}
+ul li:hover span {
+display: block;
+}
+li a::after{
+content: "";
+position: absolute;
+background-color: #ffffff;
+height: 2px;
+width: 0;
+left: 0;
+bottom: -10px;
+}
+li a:hover:after{
+color: #ffffff;
+width: 100%;
+transition: width 0.3s ease-in-out;
+}
+
+#buy {
+color: #fff;
+cursor: pointer;
+background-color: #8230c6;
+border-radius: 6px;
+font-size: 13px;
+/* height: 25px; */
+/* margin-top: -5px; */
+}
+#log {
+background-color: transparent;
+color: #fff;
+border: 1px solid #fff;
+border-radius: 6px;
+cursor: pointer;
+}
+#log:hover{
+background-color: #fff;
+color: #0f0617;
+}
+#buy:hover{
+background-color: #6d1bb1;
+}
+ul li:hover ul li {
+display:block;
+}
+
+#menu ul li {
+background-color: black;
+width: 200px;
+text-align: left;
+height: 50px;
+padding-top: 10px;
+box-sizing: border-box;
+padding-left: 30px;
+}
+
+#menu1 {
+width: 250px;
+background-color:#0f0617;
+height: 350px;
+border-radius: 10px;
+margin: auto;
+margin-top: 80px;
+padding: 15px;
+display: none;
+overflow: hidden;
+position: absolute;
+top: 0;
+right: 2%;
+z-index: 1000;
+padding:0 5% 0 5%;
+
+}
+
+.submenu1{
+    margin-top: 20px;
+}
+#menu1 a {
+text-decoration:none ;
+color: #fff;
+
+}
+.line2 {
+width: 100%;
+height: 0.1px;
+background: #6d1bb1;
+margin-top: 15px;
+margin-bottom: 20px;
+}
+.option {
+display: flex;
+justify-content: space-between;
+
+}
+.option > p {
+color: #8230c6;
+margin-top: 0px;
+font-size: 20px;
+margin-left: 20px;
+}
+select {
+background-color: transparent;
+color: #fff;
+border: 1 px solid black;
+height: 20px;
+margin-right: 20px;
+}
+select option {
+color: #fff;
+}
+#menu1 ul {
+margin-top: 0px;
+margin-left: 0px;
+padding: 5px;
+display: none;
+
+}
+
+#menu1 ul li {
+background-color: black;
+width: 200px;
+text-align: left;
+height: 50px;
+padding-top: 10px;
+box-sizing: border-box;
+padding-left: 30px;
+
+}
+#line2 + p{
+color: #8230c6;
+margin-top: 0px;
+font-size: 20px;
+text-align: center;
+}
+::placeholder{
+    color: #fff;
+}
+#menu11 {
+margin-right: 10px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+body{
+    background-color:#0f0617;
+    /* overflow: hidden; */
+    /* position: relative; */
+}
+
+
+.mySlides {
+  display: none
+}
+img {
+  vertical-align: middle;
+}
+
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  /* margin: 10px 0; 
+   margin: 10px auto;  */
+}
+.items > img{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height:350px;
+    /* object-fit: cover; */
+    border-radius: 10px;
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(184, 137, 166, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+ .next2 {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next2 {
+  right: 0%;
+  border-radius: 3px 0 0 3px;
+}
+.pre1:hover, .next2:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+/* ----------------------------slider end ----------------------------- */
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 95.5%;
+    margin: auto;
+    position: relative;
+}
+.top_heading{
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+
+}
+
+.top_heading>p,a{
+    margin-top: 25px;
+}
+.top_heading a{
+    color:#a785ff;
+}
+.top >h1{
+  margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <navbar>
+        <div id="box">
+        <div id="box1">
+        <ul>
+        <li>
+        <img src="logo.jpeg" id="logo" title="Zee5logo" alt="Zee% lOgo">
+        </li>
+        <li>
+        <a href="index.html">Home</a>
+        </li>
+        <li>
+        <a href="tvshow.html">TV Shows</a>
+        </li>
+        <li>
+        <a href="movies.html">Movies</a>
+        </li>
+        <li>
+        <a href="webseries_single.html">Web Series</a>
+        </li>
+        <li>
+        <a href="music.html">News</a>
+        
+        </li>
+        <li>
+          <a style="margin-left:1% ;" href="faverites.html">faverites</a>
+        </li>
+        
+        <li id="menu">
+        <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-ellipsis-vertical"></i></a>
+        <ul>
+        <li><a href="./Buyplan1.html" title="Zee5 Premium Package Subscription">Premium</a></li>
+        <li><a href="./music.html" title="Watch Music Videos Online">Music</a></li>
+        <li><a href="./more2.html" title="Rent & Watch Movies on ZEEFEX">ZEEFLEX</a></li>
+        <li><a href="./playvideo.html" title="Play Games Online">Play</a></li>
+        <li><a href="./about.html" title="Articles">Articles</a></li>
+        <li><a href="./more.html" title="Watch Kids Shows, Cartoons,Movies & Videos Online">Kids</a></li>
+        <li><a href="./search.html" title="Watch Official Fims Videos">Videos</a></li>
+        <li><a href="./webseries_single.html" title="Stories">Stories</a></li>
+        <li><a href="./music.html">Channels</a></li>
+        </ul>
+        </li>
+        </ul>
+        </div>
+        <div id="box2">
+        <ul>
+        <li style="margin-top: -5px;">
+            <input type="text" placeholder="search here">
+        <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> </a>
+        </li>
+        <li>
+        <a href="Login.html">
+        <button id="log">LOGIN</button></a>
+        </li>
+        <li>
+        <a href="Buyplan1.html">
+        <button id="buy"><i class="fa-solid fa-crown"></i> BUY PLAN</button></a>
+        </li>
+        <li id="menu11" style="color: #fff; cursor: pointer;">
+        <i title="Menu" class="fa-solid fa-bars"></i>
+        </li>
+        </ul>
+        </div>
+        <div id="menu1">
+        <div class="submenu1">
+        <a href="index.html"> Home</a>
+        </div>
+        <div class="submenu1">
+        <button class="accordion1">
+        <p>Explore</p> <span class="arrow"><i class="fa-solid fa-sort-down"></i></span>
+        </button>
+        <div class="panel1">
+        <a href="home.html">Premium</a>
+        <a href="home.html">Music</a>
+        <a href="home.html">About Us</a>
+        <a href="home.html">Help Center</a>
+        <a href="home.html">Videos</a>
+        </div>
+        </div>
+        <div class="submenu1">
+        <a href="tvshow.html">Tv Show</a>
+        </div>
+        <div class="submenu1">
+        <a href="webseries.html">Web Series</a>
+        </div>
+        <div class="submenu1">
+        <a href="movies.html">Movies</a>
+        </div>
+        <div class="submenu1">
+        <a href="music.html">Music</a>
+        </div>
+        <div class="submenu1">
+        <a href="movies.html">Videos</a>
+        </div>
+        </div>
+        </div>
+        </navbar>
+    <div id="cards">
+    </div>
+</body>
+</html>
+<script>
+     let url = "https://6370e03c08218c267e07c314.mockapi.io/music";
+     let data=[];
+     async function get(){
+        try{
+            let res=await fetch(url);
+            let out=await res.json();
+            data=out;
+            display(out);
+        }
+        catch(err){
+            alert(err);
+        }
+     }
+     get();
+     function display(out){
+    document.querySelector("#cards").innerHTML="";
+    out.forEach(ele => {
+        let div=document.createElement("div");
+
+        let img=document.createElement("img");
+        img.setAttribute("src",ele.avatar);
+
+        let names=document.createElement("h4");
+        names.innerText=ele.name
+
+        let times=document.createElement("p");
+        times.innerText=ele.time
+
+        let button=document.createElement("button")
+        button.innerText="Add to faverites";
+        button.addEventListener("click",function(){
+        addcart(ele);
+        })
+
+        div.append(img,names,times,button);
+        document.querySelector("#cards").append(div);
+
+    });
+
+    function addcart(element){
+    let ls_data=JSON.parse(localStorage.getItem("cart"))||[];
+    ls_data.push(element);
+    if(ls_data.brand==undefined){
+      localStorage.setItem("cart",JSON.stringify(ls_data));
+    }else if(ls_data.brand!==undefined){
+      alert("Product Already in Cart");
+    }
+   
+   }
+  }
+
+
+     
+</script>
